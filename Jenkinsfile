@@ -39,7 +39,10 @@ pipeline {
                 docker stop app-%BRANCH_NAME% || exit 0
                 docker rm app-%BRANCH_NAME% || exit 0
 
-                docker run -d -p %PORT%:3000 --name app-%BRANCH_NAME% app:%BRANCH_NAME%
+                docker run -d -p %PORT%:3000 ^
+                 -e HOST=0.0.0.0 ^
+                 --name app-%BRANCH_NAME% ^
+                 app:%BRANCH_NAME%
                 """
             }
         }
