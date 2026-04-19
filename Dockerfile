@@ -3,3 +3,4 @@ WORKDIR /opt
 ADD . /opt
 RUN npm install
 ENTRYPOINT npm run start
+EXPOSE 3000
