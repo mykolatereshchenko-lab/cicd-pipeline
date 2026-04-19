@@ -1,5 +1,7 @@
-FROM node:7.8.0
-WORKDIR /opt
-ADD . /opt
+FROM node:18
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-ENTRYPOINT npm run start
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
